@@ -1,0 +1,51 @@
+trigger:
+- main
+
+pool:
+  name : default
+
+steps:
+- script: |
+    az login --service-principal -u d1d38a38-92df-4a2f-97db-f75c23e269c4 -p fbq8Q~rEyqRSqmA0x2GtGtJCM.rr6gBrJ9cM1a8s --tenant 84f1e4ea-8554-43e1-8709-f0b8589ea118
+    az aks get-credentials --resource-group1-5653fb52-playground-sandbox --name akd-prd
+  displayName: 'Connect to AKS'
+
+- script: |
+    az acr login --name eloacrprd
+  displayName: 'Connect to ACR'
+
+- script: |
+    docker pull hello-world
+    docker build -t eloacrprd.azurecr.io/hello-world:img .
+    docker push eloacrprd.azurecr.io/hello-world:img
+  displayName: 'Build and push Docker image to ACR'
+
+
+
+  trigger:
+- main
+
+pool:
+  name: default
+
+steps:
+- script: |
+    az login --service-principal -u 9ff86d51-4bee-4748-8b1c-a574d0f56f13 -p GnS8Q~VKrO-k2XGRO84Fc~LheAbqbUFKSFLyDcyM --tenant 84f1e4ea-8554-43e1-8709-f0b8589ea118
+  displayName: 'Connect to Azure'
+
+- script: |
+    az acr login --name eloacrprd
+  displayName: 'Login to Azure Container Registry'
+
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y docker.io
+  displayName: 'Install Docker'
+
+- script: |
+    docker pull hello-world
+    docker build -t eloacrprd.azurecr.io/hello-world:img .
+    docker push eloacrprd.azurecr.io/hello-world:img
+  displayName: 'Build and push Docker image to Azure Container Registry'
+  condition: 
+

@@ -1,0 +1,16 @@
+# values.yaml
+rbac:
+  content: |
+    {{ tpl | include "tplfile" "templates/rbac.yaml" }}
+
+serviceAccount:
+  content: |
+    {{ tpl | include "tplfile" "templates/service-account.yaml" }}
+
+deployment:
+  content: |
+    {{ tpl | include "tplfile" "templates/deployment.yaml" }}
+
+service:
+  content: |
+    {{ tpl | include "tplfile" "templates/agic-service.yaml" }}

@@ -1,0 +1,12 @@
+# agic-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: agic-service
+  namespace: cluster-apps
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: agic

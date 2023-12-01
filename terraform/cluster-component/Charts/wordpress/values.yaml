@@ -1,0 +1,17 @@
+# Define default values for WordPress deployment
+replicaCount: 1
+image:
+  repository: wordpress
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 80
+ingress:
+  enabled: true
+  path: /wordpress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"

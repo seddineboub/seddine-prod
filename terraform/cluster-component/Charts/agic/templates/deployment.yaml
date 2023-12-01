@@ -1,0 +1,27 @@
+# agic-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agic-deployment
+  namespace: cluster-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agic
+  template:
+    metadata:
+      labels:
+        app: agic
+    spec:
+      serviceAccountName: agic-service-account
+      containers:
+      - name: agic
+        image: mcr.microsoft.com/azure-application-gateway/kubernetes-ingress:1.7.0
+        args:
+        - --ingress-class=azure/application-gateway
+        - --appgw-name=app-gtw-prd
+        - --appgw-subscription-id= 2213e8b1-dbc7-4d54-8aff-b5e315df5e5b
+        - --appgw-resource-group=1-5653fb52-playground-sandbox
+        - --watch-namespace= cluster-apps
+        # Add other necessary arguments/configurations
