@@ -1,0 +1,16 @@
+# Ignore Terraform files
+*.tfstate
+*.tfstate.backup
+*.tfplan
+*.tfvars
+.terraform/
+backend.tf
+provider.tf
+
+
+# Ignore Terragrunt files
+.terragrunt.lock.hcl
+/.terragrunt-cache/
+/.terragrunt.tfvars
+/terragrunt-cache/
+terragrunt-cache/
