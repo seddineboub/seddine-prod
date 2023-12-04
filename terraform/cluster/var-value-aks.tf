@@ -51,12 +51,12 @@ variable "aks_node_os_disk_size_gb" {
 variable "client_id" {
   description = "Client id for auth - current account"
     type = string
-    default = "84cb6304-7cfb-4ea9-811a-f325778bfddd"
+    default = "c4be7359-9cc6-495e-856c-80dfaef21e44"
 }
 variable "client_secret" {
   description = "Client secret for auth - current account"
     type = string
-    default = "HcM8Q~L-IxP4x3k8I0rXYtH2ZEmGKHQKskyTzbTw"
+    default = "FWu8Q~otzq-Lx._5HToHNWoRU22eRVN6iwuXZcXC"
 }
 
 
