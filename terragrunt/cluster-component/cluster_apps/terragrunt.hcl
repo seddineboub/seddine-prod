@@ -17,7 +17,7 @@ terraform{
 
 inputs= {
  location            = "West US"
-  resource_group_name = "1-e967b1c4-playground-sandbox"
+  resource_group_name = "1-efd7ea68-playground-sandbox"
 }
 
 

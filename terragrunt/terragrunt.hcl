@@ -20,7 +20,7 @@ remote_state {
     if_exists = "overwrite"
   }
   config = {
-    resource_group_name  = "1-e967b1c4-playground-sandbox"
+    resource_group_name  = "1-efd7ea68-playground-sandbox"
     storage_account_name = "storeelonetwork" // store elonetwork - need storage space created first
     container_name       = "containerst" //  CONTAINER ST
     key                  = "${path_relative_to_include()}/prod.tfstate"

@@ -15,5 +15,5 @@ inputs = {
   vnet_hub_name       = "vnet-prd"
   address_space       = ["10.102.0.0/16"]
   location            = "West US"
-  resource_group_name = "1-e967b1c4-playground-sandbox"
+  resource_group_name = "1-efd7ea68-playground-sandbox"
 }
