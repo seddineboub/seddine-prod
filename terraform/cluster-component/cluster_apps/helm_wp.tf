@@ -1,6 +1,6 @@
 
 resource "helm_release" "yaml_file_2" {
-  chart   = "/home/seddine/elo-helm/wordpress"
+  chart   = "/home/seddine/elo-helm/wpp"
   name    = "wordpress"
   version = "1"
 
